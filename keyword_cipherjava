@@ -1,0 +1,39 @@
+import java.util.*;
+class Keyword_Cipher
+{
+    String key="";
+    String alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    String ec="";
+    String dc="";
+    String ns="";
+    void main()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter keyword");
+        key=sc.next().toUpperCase();
+        Scanner sc1=new Scanner(System.in);
+         System.out.println("Enter encrypted message");
+        ec=sc1.nextLine().toUpperCase();
+        for(int i=0;i<key.length();i++)
+        {
+            char ch=key.charAt(i);
+            if((ns.indexOf(ch)==-1)&&(ch>='A'&&ch<='Z'))
+            ns=ns+ch;
+        }
+        for(int i=0;i<26;i++)
+        {
+            char ch=alpha.charAt(i);
+            if(ns.indexOf(ch)==-1)
+        ns=ns+ch;
+    }
+        for(int i=0;i<ec.length();i++)
+        {
+            char ch=ec.charAt(i);
+            if(Character.isLetter(ch))
+            dc=dc+ns.charAt(alpha.indexOf(ch));
+            else
+            dc=dc+ch;
+        }
+        System.out.println("Decrypted Message: "+dc);
+    }
+}
